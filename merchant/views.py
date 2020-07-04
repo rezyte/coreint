@@ -13,9 +13,11 @@ class OrderView(LoginRequiredMixin, View):
         def get(self, *arg, **kwargs):
             try:
                 order = Order.objects.filter(user__user=self.request.user)
+                user = self.request.user.username
 
                 context = {
                     'objects': order,
+                    'username': user,
                 }
                 return render(self.request, "order_summary.html", context)
 

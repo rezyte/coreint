@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block head_title %}{% trans "ساختن حساب" %}{% endblock %}
 
 {% block content %}
   <main>
@@ -10,7 +10,7 @@
       <section class="mb-4">
         <div class="row wow fadeIn">
           <div class='col-6 offset-3'>
-            <h1>{% trans "Sign Up" %}</h1>
+            <h1>{% trans "ساختن حساب" %}</h1>
             <p>{% blocktrans %}از قبل حساب کاربری دارید پس  <a href="{{ login_url }}">واردشوید</a>.{% endblocktrans %}</p>
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
               {% csrf_token %}
