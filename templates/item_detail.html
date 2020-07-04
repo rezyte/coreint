@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <img src="{{ object.image.url }}" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">موجود</span>
+              </a>
+            </div>
+
+            <p class="lead" >
+              <span>{{ object.order }}</span>
+            </p>
+
+            <p class="lead font-weight-bold float-right">توضیحات</p>
+
+            <p dir="rtl" class="float-right">{{ object.description }}</p>
+            <a href="{{ object.get_confirm_order_url }}" class="btn btn-green btn-md my-0 p float-right">
+              تایید
+
+            </a>
+            <a href="{{ object.get_remove_order_url }}" class="btn btn-danger btn-md my-0 p float-right">
+              رد سفارش
+            </a>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <hr>
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+          <h4 class="my-4 h4">اطلاعات اضافی</h4>
+
+          <p>{{ order.additional_info }}</p>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+
+{% endblock content %}

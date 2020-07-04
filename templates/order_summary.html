@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main>
+    <div class="container">
+
+    <div class="table-responsive text-nowrap">
+    <h2 class="float-right" dir="rtl">سفارش شما</h2>
+    <table  dir="rtl" class="table">
+        <thead dir="rtl">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">نام مشتری</th>
+            <th scope="col">نام شرکت</th>
+            <th scope="col">شماره تماس</th>
+            <th scope="col">توضیحات</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">وضعیت</th>
+            <th scope="col"></th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in objects %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ order.costumer_last_name }}</td>
+            {% if order.is_active %}
+            <td>{{ order.city }}</td>
+            <td> {{ order.telephone_number}} </td>
+            {% else %}
+            <td>سفارش را تایید کنید</td>
+            <td>سفارش را تایید کنید </td>
+            {% endif %}
+            <td>
+                <p>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">جزییات</a>
+                </p>
+            </td>
+            <td colspan="5">
+            <a class='btn btn-green float-left' href='{{ order.get_absolute_url }}'>تایید</a>
+            </td>
+            </tbody>
+        </tr>
+        <thead dir="rtl" class="collapse" id="multiCollapseExample1">
+        <tr>
+            <th scope="col">تاریخ سفارش</th>
+            <th scope="col">شهر</th>
+            <th scope="col"> محصول درخواستی</th>
+            <th scope="col"> ظرفیت</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">کشور</th>
+            <th scope="col"></th>
+
+
+        </tr>
+        </thead>
+        <tbody class="collapse" id="multiCollapseExample1">
+        <tr>
+            <th scope="row">{{ order.start_date }}</th>
+            <td>{{ order.city }}</td>
+            <td>{{ order.order }}</td>
+            <td>بالا </td>
+
+            </tbody>
+        </tr>
+        </div>
+        {% empty %}
+        <tr>
+            <td colspan='5' dir="rtl" class="float-right">شما سفارشی ندارید</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+            <a class='btn btn-primary float-left' href='/'>برگشت به فروشگاه</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    </div>
+    </div>
+  </main>
+
+{% endblock content %}
+
+
