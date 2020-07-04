@@ -1,7 +1,7 @@
 {% extends "account/base.html" %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}{% trans "خروج" %}{% endblock %}
 
 {% block content %}
   <main>
@@ -10,7 +10,7 @@
         <div class="row wow fadeIn">
           <div class='col-6 offset-3'>
             <h1>{% trans "Sign Out" %}</h1>
-            <p>{% trans 'Are you sure you want to sign out?' %}</p>
+            <p>{% trans 'آیا از خروج اطمینان دارید؟' %}</p>
             <form method="post" action="{% url 'account_logout' %}">
               {% csrf_token %}
               {% if redirect_field_value %}
