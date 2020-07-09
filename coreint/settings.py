@@ -12,9 +12,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alireza009.mysql.pythonanywhere-services.com','alireza009.pythonanywhere.com']
 
 
 # Application definition
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 
     'merchant',
     'crispy_forms',
-    'tinymce',
+
 
 ]
 
@@ -75,8 +75,13 @@ WSGI_APPLICATION = 'coreint.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'alireza009$django',
+        'HOST': 'alireza009.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+        'USER': 'alireza009',
+        'PASSWORD' : 'lemon@3435675',
+
     }
 }
 
@@ -159,6 +164,9 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+ACCOUNT_FORMS = {'signup': 'merchant.forms.CustomSignupForm', 'login': 'merchant.forms.CustomLoginForm'}
+
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'

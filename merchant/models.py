@@ -33,7 +33,7 @@ class Order(models.Model):
     order = models.CharField(max_length=128)
     costumer_company = models.CharField(max_length=32)
     start_date = models.DateTimeField(default=django.utils.timezone.now())
-    telephone_number = models.IntegerField()
+    telephone_number = models.CharField(max_length=20)
     address = models.CharField(max_length=512)
     city = models.CharField(max_length=32)
     country = models.CharField(max_length=32)
